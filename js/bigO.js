@@ -2,12 +2,12 @@ function BigO() {
   this.maxNumber = 10;
 }
 
-BigO.prototype.generateData = function(_n, _m) {
+BigO.prototype.generateData = function(_n, _exp) {
   var data = Array();
   for (i = 0; i < _n; i++) {
-    if (_m) {
+    if (_exp) {
       data[i] = Array();
-      for (j = 0; j < _m; j++) {
+      for (j = 0; j < _n; j++) {
         data[i][j] = Math.floor(Math.random() * this.maxNumber);
       }
     }
@@ -51,11 +51,11 @@ BigO.prototype.linear = function(_n, _debug) {
   return 'End counter: ' + counter;
 }
 
-BigO.prototype.exponential = function(_n, _m, _debug) {
+BigO.prototype.exponential = function(_n, _debug) {
   if (_debug)
     debugger;
 
-  var data = this.generateData(_n, _m);
+  var data = this.generateData(_n, true);
   var counter = 0;
 
   for (i = 0; i < data.length; i++) {
